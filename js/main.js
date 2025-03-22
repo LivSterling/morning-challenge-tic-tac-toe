@@ -8,16 +8,39 @@ const gridSix = document.getElementById('gSix')
 const gridSeven = document.getElementById('gSeven')
 const gridEight = document.getElementById('gEight')
 const gridNine = document.getElementById('gNine')
-const rowOne = document.getElementsByClassName('r1')
+// const rowOne = document.getElementsByClassName('r1')
 let isO = false
 
 
-function checkForWin() {
-    if (gridOne.innerHTML === "X" && gridTwo.innerHTML === "X" && gridThree.innerHTML === "X") {
-        console.log("X wins")
-    }
-        
+const winLines = {
+    rowOne: document.getElementsByClassName('r1'),
+    rowTwo: document.getElementsByClassName('r2'),
+    
 }
+
+// function checkForWin() {
+//     if (gridOne.innerHTML === "X" && gridTwo.innerHTML === "X" && gridThree.innerHTML === "X" || grid) {
+//         console.log("X wins")
+//     }
+        
+// }
+
+function checkForWin(className) {
+    const elements = className;
+
+    const firstInnerHTML = elements[0].innerHTML;
+    for (let i = 1; i < elements.length; i++) {
+      if (elements[i].innerHTML !== firstInnerHTML) {
+        return false;
+      } 
+    } if (firstInnerHTML === 'X') {
+        console.log("X wins")
+    } else {
+        console.log("O wins")
+    }
+
+  }
+
 gridOne.addEventListener('click', () => {
     if (isO === false) {
         gridOne.innerHTML = "X"
@@ -25,7 +48,8 @@ gridOne.addEventListener('click', () => {
         gridOne.innerHTML = "O"
     }
     isO = !isO
-    checkForWin()
+    checkForWin(winLines.rowOne )
+     checkForWin(winLines.rowTwo)
 })
 gridTwo.addEventListener('click', () => {
     if (isO === false) {
