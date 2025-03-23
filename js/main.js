@@ -1,13 +1,15 @@
 // Goal: Create a two player Tic-Tac-Toe game. The users should be able to click to place their X or O and if they win the program should mention their win in the DOM. Please make the game as OOP as possible.
-const gridOne = document.getElementById('gOne')
-const gridTwo = document.getElementById('gTwo')
-const gridThree = document.getElementById('gThree')
-const gridFour = document.getElementById('gFour')
-const gridFive = document.getElementById('gFive')
-const gridSix = document.getElementById('gSix')
-const gridSeven = document.getElementById('gSeven')
-const gridEight = document.getElementById('gEight')
-const gridNine = document.getElementById('gNine')
+const grid = {
+gridOne: document.getElementById('gOne'),
+gridTwo: document.getElementById('gTwo'),
+gridThree: document.getElementById('gThree'),
+gridFour: document.getElementById('gFour'),
+gridFive: document.getElementById('gFive'),
+gridSix: document.getElementById('gSix'),
+gridSeven: document.getElementById('gSeven'),
+gridEight: document.getElementById('gEight'),
+gridNine: document.getElementById('gNine'),
+}
 // const rowOne = document.getElementsByClassName('r1')
 let isO = false
 
@@ -15,7 +17,12 @@ let isO = false
 const winLines = {
     rowOne: document.getElementsByClassName('r1'),
     rowTwo: document.getElementsByClassName('r2'),
-    
+    rowThree: document.getElementsByClassName('r3'),
+    columnOne: document.getElementsByClassName('c1'),
+    columnTwo: document.getElementsByClassName('c2'),
+    columnThree: document.getElementsByClassName('c3'),
+    diagonalOne: document.getElementsByClassName('d1'),
+    diagonalTwo: document.getElementsByClassName('d2')
 }
 
 // function checkForWin() {
@@ -41,7 +48,7 @@ function checkForWin(className) {
 
   }
 
-gridOne.addEventListener('click', () => {
+grid.gridOne.addEventListener('click', () => {
     if (isO === false) {
         gridOne.innerHTML = "X"
     } else {
@@ -49,7 +56,8 @@ gridOne.addEventListener('click', () => {
     }
     isO = !isO
     checkForWin(winLines.rowOne )
-     checkForWin(winLines.rowTwo)
+    checkForWin(winLines.columnTwo)
+    checkForWin(winLines.diagonalOne)
 })
 gridTwo.addEventListener('click', () => {
     if (isO === false) {
@@ -58,6 +66,7 @@ gridTwo.addEventListener('click', () => {
         gridTwo.innerHTML = "O"
     }
     isO = !isO
+
 })
 gridThree.addEventListener('click', () => {
     if (isO === false) {
