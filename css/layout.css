@@ -24,11 +24,6 @@ html {
 /* BASE STYLES
 /*******************************************/
 
-body > * {
-    max-width: 1440px;
-    margin: auto;
-
-}
 
 a {
     color: inherit;

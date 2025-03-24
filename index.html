@@ -14,31 +14,42 @@
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
-		<main>
+		<main class="background">
 
-			<div>
-				<h1>Tic-Tac-To</h1>
-				<div>
+			<div class="typewriter">
+				<h1>Want to play a game?</h1>
+			  </div>
+
+			<div class="app">
+				<h2>Tic-Tac-To</h2>
+				<div class="board">
 					<ul>
-						<li id="gOne" class="r1 c1 d1"></li>
-						<li id="gTwo" class="r1 c2 "></li>
-						<li id="gThree" class="r1 c3 d2"></li>
+						<li id="gOne" class="box r1 c1 d1"></li>
+						<li id="gTwo" class="box r1 c2 "></li>
+						<li id="gThree" class="box r1 c3 d2"></li>
 					</ul>
 
 					<ul>
-						<li id="gFour" class="r2 c1"></li>
-						<li id="gFive" class="r2 c2 d1 d2"></li>
-						<li id="gSix" class="r2 c3"></li>
+						<li id="gFour" class="box r2 c1"></li>
+						<li id="gFive" class="box r2 c2 d1 d2"></li>
+						<li id="gSix" class="box r2 c3"></li>
 					</ul>
 
 					<ul>
-						<li id="gSeven" class="r3 c1"></li>
-						<li id="gEight" class="r3 c2"></li>
-						<li id="gNine" class="r3 c3 d1 d2"></li>
+						<li id="gSeven" class="box r3 c1 d2"></li>
+						<li id="gEight" class="box r3 c2"></li>
+						<li id="gNine" class="box r3 c3 d1"></li>
 					</ul>
+				</div>
+				<div class="buttonRow">
+					<button id="restart">restart</button> 
+					<div class="score">
+						<p>Player X score: <span id="playerX"></span> player O score: <span id="playerO"></span></p>
+					</div>
 				</div>
 
 			</div>
+			<img src="congratulations-7600_256.gif" alt="" id="congratulations" class="hidden">
 		</main>
 		
 		<script type="text/javascript" src="js/main.js"></script>
