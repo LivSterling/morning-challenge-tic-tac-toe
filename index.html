@@ -12,16 +12,19 @@
 		<link rel="stylesheet" href="css/layout.css">
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/style.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 	</head>
 	<body>
 		<main class="background">
 
 			<div class="typewriter">
-				<h1>Want to play a game?</h1>
+				<h1>Shall we play a game?</h1>
 			  </div>
 
 			<div class="app">
-				<h2>Tic-Tac-To</h2>
+				<h2>Tic-Tac-Toe</h2>
 				<div class="board">
 					<ul>
 						<li id="gOne" class="box r1 c1 d1"></li>
@@ -44,14 +47,20 @@
 				<div class="buttonRow">
 					<button id="restart">restart</button> 
 					<div class="score">
-						<p>Player X score: <span id="playerX"></span> player O score: <span id="playerO"></span></p>
+						<p>Player X score: <span id="playerX"></span><br> player O score: <span id="playerO"></span></p>
 					</div>
 				</div>
 
 			</div>
-			<img src="congratulations-7600_256.gif" alt="" id="congratulations" class="hidden">
+			<div id="start" class="start">
+				<img src="dagj642-116a9d2a-7e1c-48b9-a5d4-1127c24ff650.gif" alt="" id="gameGuy" class="gameGuy">
+				<button id="play" class="play">PLAY</button>
+
+			</div>
+			
+			
 		</main>
-		
+		<img src="fireworks_gameboy.gif" alt="" id="congratulations" class="congrats hidden" >
 		<script type="text/javascript" src="js/main.js"></script>
 	</body>
 </html>

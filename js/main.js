@@ -1,34 +1,29 @@
 // Goal: Create a two player Tic-Tac-Toe game. The users should be able to click to place their X or O and if they win the program should mention their win in the DOM. Please make the game as OOP as possible.
-// const grid = {
-//     gridOne: document.getElementById('gOne'),
-//     gridTwo: document.getElementById('gTwo'),
-//     gridThree: document.getElementById('gThree'),
-//     gridFour: document.getElementById('gFour'),
-//     gridFive: document.getElementById('gFive'),
-//     gridSix: document.getElementById('gSix'),
-//     gridSeven: document.getElementById('gSeven'),
-//     gridEight: document.getElementById('gEight'),
-//     gridNine: document.getElementById('gNine'),
-// }
-// const rowOne = document.getElementsByClassName('r1')
-let isO = false
-const confetti = document.getElementById('congratulations') 
-const restart = document.getElementById('restart')
-
-const winLines = [
-    rowOne = document.getElementsByClassName('r1'),
-    rowTwo = document.getElementsByClassName('r2'),
-    rowThree = document.getElementsByClassName('r3'),
-    columnOne = document.getElementsByClassName('c1'),
-    columnTwo = document.getElementsByClassName('c2'),
-    columnThree = document.getElementsByClassName('c3'),
-    diagonalOne =document.getElementsByClassName('d1'),
-    diagonalTwo =document.getElementsByClassName('d2'),
-]
-document.getElementById('playerX').innerHTML = 0
-document.getElementById('playerO').innerHTML = 0
- function checkForWin() {
-    winLines.forEach(property => {
+const ticTacToe = {
+    isO: false,
+    fireworks: document.getElementById('congratulations'),
+    restart: document.getElementById('restart'),
+    playButton: document.getElementById('play'),
+    gameGuy: document.getElementById('gameGuy'),
+    winLines: [
+        rowOne = document.getElementsByClassName('r1'),
+        rowTwo = document.getElementsByClassName('r2'),
+        rowThree = document.getElementsByClassName('r3'),
+        columnOne = document.getElementsByClassName('c1'),
+        columnTwo = document.getElementsByClassName('c2'),
+        columnThree = document.getElementsByClassName('c3'),
+        diagonalOne =document.getElementsByClassName('d1'),
+        diagonalTwo =document.getElementsByClassName('d2'),
+    ],
+    players: {
+        amount: 2,
+        player1: "X",
+        player2: "O",
+        player1Score: document.getElementById('playerX').innerHTML,
+        player2Score: document.getElementById('playerO').innerHTML,
+    },
+    checkForWin: function() {
+    ticTacToe.winLines.forEach(property => {
     const elements = property;
 
     const firstInnerHTML = elements[0].innerHTML;
@@ -39,14 +34,23 @@ document.getElementById('playerO').innerHTML = 0
     } if (firstInnerHTML === 'X') {
         console.log("X wins")
         document.getElementById('playerX').innerHTML ++
-        confetti.classList.remove('hidden')
+        ticTacToe.fireworks.classList.remove('hidden')
     } else {
         console.log("O wins")
         document.getElementById('playerO').innerHTML ++
-        confetti.classList.remove('hidden')
+        ticTacToe.fireworks.classList.remove('hidden')
     }
   })
 }
+   
+
+}
+// let isO = false
+ ticTacToe.playButton.addEventListener('click', () => {
+    gameGuy.classList.add('hidden')
+})
+ticTacToe.players.player1Score = 0
+ 
 
 const boxes = document.querySelectorAll('.box');
 
@@ -54,21 +58,21 @@ boxes.forEach(element => {
     element.addEventListener('click', () => {
     console.log(element);
     if (element.innerHTML === "") {
-    if (isO === false) {
+    if (ticTacToe.isO === false) {
         element.innerHTML = "X"
     } else {
         element.innerHTML = "O"
     }
 }
-    isO = !isO
-    checkForWin()
+    ticTacToe.isO = !ticTacToe.isO
+    ticTacToe.checkForWin()
 })
 })
 
-restart.addEventListener('click', () => {
+ticTacToe.restart.addEventListener('click', () => {
     boxes.forEach(element => {
         element.innerHTML = ""
-        confetti.classList.add('hidden')
+        ticTacToe.fireworks.classList.add('hidden')
     })
 })
 
@@ -143,6 +147,18 @@ restart.addEventListener('click', () => {
 
 
 
+// const grid = {
+//     gridOne: document.getElementById('gOne'),
+//     gridTwo: document.getElementById('gTwo'),
+//     gridThree: document.getElementById('gThree'),
+//     gridFour: document.getElementById('gFour'),
+//     gridFive: document.getElementById('gFive'),
+//     gridSix: document.getElementById('gSix'),
+//     gridSeven: document.getElementById('gSeven'),
+//     gridEight: document.getElementById('gEight'),
+//     gridNine: document.getElementById('gNine'),
+// }
+// const rowOne = document.getElementsByClassName('r1')
 
 
 // grid.gridOne.addEventListener('click', () => {
